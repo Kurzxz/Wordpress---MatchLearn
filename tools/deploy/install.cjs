@@ -1,0 +1,15 @@
+const {open}=require('./admin.cjs');
+const fs=require('fs');
+(async()=>{const {browser,page}=await open();
+ fs.writeFileSync('/workspace/matchlearn-tools/deploy/rollback.json',JSON.stringify({site:'https://matchlearn.cat',previousTheme:'astra',show_on_front:'page',page_on_front:'1859',page_for_posts:'0',note:'Only install and activate MatchLearn. Retain Astra, all pages and existing plugins.'},null,2),{mode:0o600});
+ await page.goto('https://matchlearn.cat/wp-admin/theme-install.php?tab=upload',{waitUntil:'domcontentloaded'});
+ if(!await page.locator('#install-theme-submit').isVisible()) await page.locator('.upload-view-toggle').click();
+ await page.locator('input[type=file][name=themezip]').setInputFiles('/workspace/Wordpress---MatchLearn/dist/matchlearn.zip');
+ await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded',timeout:60000}),page.locator('#install-theme-submit').click()]);
+ console.log('INSTALL RESULT', (await page.locator('#wpbody-content').innerText()).slice(0,2500));
+ const activate=page.locator('a[href*="themes.php?action=activate"]').first();
+ if(await activate.count()===0) throw Error('Activation link not found; theme not activated');
+ await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded',timeout:60000}),activate.click()]);
+ console.log('ACTIVE THEME',await page.locator('.theme.active .theme-name').innerText());
+ await browser.close();
+})().catch(e=>{console.log(e.message);process.exit(1)});

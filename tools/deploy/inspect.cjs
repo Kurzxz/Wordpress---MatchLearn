@@ -1,0 +1,11 @@
+const {open}=require('./admin.cjs');
+(async()=>{const {browser,page}=await open();
+ await page.goto('https://matchlearn.cat/wp-admin/plugins.php',{waitUntil:'domcontentloaded'});
+ console.log('PLUGINS',JSON.stringify(await page.locator('tr[data-plugin]').evaluateAll(rows=>rows.map(r=>({plugin:r.getAttribute('data-plugin'),name:r.querySelector('.plugin-title strong')?.textContent,active:r.classList.contains('active'),description:r.querySelector('.plugin-description')?.textContent?.trim().slice(0,240)})))));
+ await page.goto('https://matchlearn.cat/wp-admin/themes.php',{waitUntil:'domcontentloaded'});
+ console.log('THEMES',JSON.stringify(await page.locator('.theme').evaluateAll(rows=>rows.map(r=>({name:r.querySelector('.theme-name')?.textContent,active:r.classList.contains('active'),slug:r.getAttribute('data-slug')})))));
+ console.log('Can add themes:',await page.locator('a[href*="theme-install.php"]').count());
+ await page.goto('https://matchlearn.cat/wp-admin/options-reading.php',{waitUntil:'domcontentloaded'});
+ console.log('READING',JSON.stringify(await page.evaluate(()=>({show_on_front:document.querySelector('input[name="show_on_front"]:checked')?.value,page_on_front:document.querySelector('#page_on_front')?.value,page_for_posts:document.querySelector('#page_for_posts')?.value}))));
+ await browser.close();
+})().catch(e=>{console.error(e.message);process.exit(1)});

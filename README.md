@@ -30,13 +30,13 @@ Les simulacions s'executen al navegador i s'esborren en recarregar. No creen usu
 
 El botó de graduats executa sempre la simulació mentre JavaScript està actiu. La URL opcional de graduats s'utilitza només com a destinació alternativa sense JavaScript. Per a aquest projecte acadèmic, deixa buides les URL externes.
 
-Els altres textos es troben a `matchlearn/front-page.php`, els crèdits a `footer.php`, les pantalles simulades a `demo.php` i els estils a `assets/site.css`. Aquesta portada està feta a mida: no és una plantilla d'Elementor ni un conjunt de blocs editables des de l'editor de pàgines.
+Els altres textos es troben a `matchlearn/front-page.php`, els crèdits a `credits.php`, just després de la capçalera visual, les pantalles simulades a `demo.php` i els estils a `assets/site.css`. Aquesta portada està feta a mida: no és una plantilla d'Elementor ni un conjunt de blocs editables des de l'editor de pàgines.
 
 Es pot assignar un menú a **Enllaços legals del peu**. Si WordPress té una pàgina de privacitat publicada i assignada, el tema n'afegeix l'enllaç. Els textos legals reals depenen del titular i dels connectors instal·lats; no se n'han inventat dades. El tema no incorpora analítica, fonts remotes ni galetes pròpies. WordPress i altres connectors poden tenir-ne.
 
 ## Fitxers i crèdits
 
-El ZIP conté només el tema, sense els PDF originals, credencials, dependències de desenvolupament ni base de dades. Les il·lustracions són SVG/CSS originals amb assistència d'OpenAI (ChatGPT/Codex); no hi ha fotografies de tercers. L'atribució també és visible al peu de la web.
+El ZIP conté només el tema, sense els PDF originals, credencials, dependències de desenvolupament ni base de dades. Les il·lustracions són SVG/CSS originals amb assistència d'OpenAI (ChatGPT/Codex); no hi ha fotografies de tercers. L'atribució apareix al costat de la portada visual, abans de la resta de seccions.
 
 ## Desenvolupament local
 
@@ -54,4 +54,4 @@ Arrencada a l'entorn preparat:
 
 Validació de navegació: `node /workspace/matchlearn-tools/check.cjs`.
 
-El WordPress de Dinahosting no s'ha modificat. L'activació del ZIP s'ha de fer des del seu panell.
+La versió 1.0.0 ja està activada a Dinahosting. El ZIP actual és la versió 1.0.1, pendent de desplegar i validar: consulta `CONTINUAR.md` abans de continuar.
