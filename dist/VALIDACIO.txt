@@ -1,6 +1,14 @@
-MatchLearn 1.0.0
-Validat en WordPress 6.8, PHP 8.3 (WordPress Playground).
-Correcte: càrrega WordPress, HTML en català, cerca sense accents, filtres, reserva, preu per durada, pagament fictici, aula simulada, valoració, candidatura de tutors, menú mòbil, sense desbordament horitzontal a 390 px ni errors JavaScript.
-Arxiu ZIP comprovat.
-El lloc de Dinahosting no s’ha modificat.
-SHA-256: e4998c0150db14ae2ff1660de373967713741dbf78c2f8ac5e18d24d22c5e595
+MatchLearn 1.0.1 — 2 novembre 2026
+Instal·lat i activat a https://matchlearn.cat/.
+ZIP íntegre i coincident amb el codi del tema.
+Proves públiques PASS amb paràmetre de consulta per evitar una resposta antiga de caché:
+- Portada WordPress i HTML català.
+- Filtres de matèries i cerca sense accents.
+- Reserva, durada i import, pagament fictici, aula i valoració.
+- Candidatura simulada de tutors.
+- Menú mòbil, sense desbordament horitzontal a 390 px.
+- Sense errors JavaScript.
+- Crèdits al principi, després de la il·lustració; peu anterior d’Elementor eliminat.
+SureCookie i metadades SEO actualitzats en català.
+LIMITACIÓ: la URL principal sense paràmetres encara ha retornat una còpia antiga amb capçalera Age. Cal buidar la caché de Dinahosting o comprovar-ne l’expiració. No es declara la propagació completa de la caché.
+SHA-256: 25ed1b1265b1c8a29c6f2c86fa8804ac6b41f40faea59c23df9712f8459c9be6

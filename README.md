@@ -54,4 +54,4 @@ Arrencada a l'entorn preparat:
 
 Validació de navegació: `node /workspace/matchlearn-tools/check.cjs`.
 
-La versió 1.0.0 ja està activada a Dinahosting. El ZIP actual és la versió 1.0.1, pendent de desplegar i validar: consulta `CONTINUAR.md` abans de continuar.
+La versió 1.0.1 ja està instal·lada, activada i provada a Dinahosting. Resta comprovar la renovació de la caché de la URL principal: consulta `CONTINUAR.md` abans de continuar.
