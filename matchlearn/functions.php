@@ -9,8 +9,8 @@ add_action('after_setup_theme', function () {
     register_nav_menus(array('footer' => 'Enllaços legals del peu'));
 });
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('matchlearn', get_theme_file_uri('/assets/site.css'), array(), '1.0.1');
-    wp_enqueue_script('matchlearn', get_theme_file_uri('/assets/site.js'), array(), '1.0.1', true);
+    wp_enqueue_style('matchlearn', get_theme_file_uri('/assets/site.css'), array(), '1.1.0');
+    wp_enqueue_script('matchlearn', get_theme_file_uri('/assets/site.js'), array(), '1.1.0', true);
 });
 add_action('customize_register', function ($customizer) {
     $customizer->add_section('ml_settings', array('title' => 'MatchLearn · Configuració', 'priority' => 30));
@@ -31,7 +31,7 @@ function ml_star() { return '<svg viewBox="0 0 40 40" aria-hidden="true"><path f
 // The bespoke front page does not render Elementor content. Avoid loading its
 // frontend bundles here; existing interior Elementor pages retain their assets.
 add_action('wp_enqueue_scripts', function () {
-    if (!is_front_page() || isset($_GET['elementor-preview'])) { return; }
+    if ((!is_front_page() && !ml_is_custom_page()) || isset($_GET['elementor-preview'])) { return; }
     foreach (array(wp_scripts(), wp_styles()) as $registry) {
         foreach ($registry->queue as $handle) {
             if (strpos($handle, 'elementor') === 0 || strpos($handle, 'e-animation') === 0) {
@@ -40,3 +40,7 @@ add_action('wp_enqueue_scripts', function () {
         }
     }
 }, 1000);
+
+function ml_is_custom_page() {
+    return is_page_template(array('page-reserva.php','page-tutors.php','page-graduats.php','page-com-funciona.php','page-materies.php','page-projecte.php','page-preguntes.php','page-aleix.php'));
+}

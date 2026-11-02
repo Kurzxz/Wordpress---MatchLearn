@@ -1,0 +1,69 @@
+{
+  "pages": [
+    {
+      "slug": "reserva",
+      "status": 201,
+      "id": 1973,
+      "link": "https://matchlearn.cat/reserva/"
+    },
+    {
+      "slug": "tutors",
+      "status": 201,
+      "id": 1974,
+      "link": "https://matchlearn.cat/tutors/"
+    },
+    {
+      "slug": "tutor-aleix",
+      "status": 201,
+      "id": 1975,
+      "link": "https://matchlearn.cat/tutor-aleix/"
+    },
+    {
+      "slug": "fes-te-tutor",
+      "status": 201,
+      "id": 1976,
+      "link": "https://matchlearn.cat/fes-te-tutor/"
+    },
+    {
+      "slug": "materies",
+      "status": 201,
+      "id": 1977,
+      "link": "https://matchlearn.cat/materies/"
+    },
+    {
+      "slug": "com-funciona",
+      "status": 201,
+      "id": 1978,
+      "link": "https://matchlearn.cat/com-funciona/"
+    },
+    {
+      "slug": "projecte",
+      "status": 201,
+      "id": 1979,
+      "link": "https://matchlearn.cat/projecte/"
+    },
+    {
+      "slug": "preguntes-frequents",
+      "status": 201,
+      "id": 1980,
+      "link": "https://matchlearn.cat/preguntes-frequents/"
+    },
+    {
+      "slug": "privacitat",
+      "status": 201,
+      "id": 1981,
+      "link": "https://matchlearn.cat/privacitat/"
+    },
+    {
+      "slug": "cookies",
+      "status": 201,
+      "id": 1982,
+      "link": "https://matchlearn.cat/cookies/"
+    }
+  ],
+  "settings": {
+    "cookieStatus": 200,
+    "cookieSuccess": true,
+    "seoStatus": 200
+  }
+}

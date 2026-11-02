@@ -1,43 +1,69 @@
-# Continuar MatchLearn
+# Continuar MatchLearn — estat actual
 
-Estat desat el 2 de novembre de 2026. L’usuari vol conservar tot per continuar des d’un altre ordinador de Codex.
+Actualitzat el 2 de novembre de 2026. Tot el codi i el resum s’han de conservar a GitHub per continuar des d’un altre ordinador.
 
-## Objectiu i decisions
-Web WordPress en català a https://matchlearn.cat/, basada en els PDF del projecte d’Arnau Taure i Joel Martínez. Nom públic MatchLearn (als documents, Espavila). Tutors, reserves, pagaments i aula són simulats. No es cobren diners ni es desen dades personals en aquests recorreguts. L’usuari ha demanat posar els crèdits d’IA al costat de la il·lustració, no al final.
+## Últimes instruccions de l’usuari
+- Web en català basada en el projecte d’Arnau Taure i Joel Martínez.
+- El servei és acadèmic, amb reserves/pagaments sense operacions reals, però sense avisos repetits de «fictici» o «simulació» a la portada i botons.
+- Reproduir la fitxa del tutor de la **segona diapositiva** de la presentació: Aleix García, avatar, assignatures, 12 €/hora i calendari setmanal.
+- Crear **pàgines separades**, no concentrar tot a la portada.
+- Crèdits d’IA al costat de les il·lustracions, no al final.
+- Publicar a WordPress i guardar-ho a GitHub. L’usuari ha purgat Varnish a Dinahosting.
 
-## Ja publicat
-- Tema MatchLearn **1.0.1** instal·lat i activat. Font i ZIP actuals a GitHub coincideixen amb la versió pujada.
-- Crèdits a `credits.php`, immediatament després de la il·lustració de portada. Eliminats del footer.
-- Assets Elementor exclosos només de la portada personalitzada: resol l’error `elementorFrontendConfig is not defined`. Pàgines interiors conserven Elementor.
-- Portada estàtica: pàgina 1859; show_on_front=page; page_for_posts=0. Títol canviat de Home a Inici i extracte en català.
-- SureRank: títol i descripcions SEO/OpenGraph/Twitter en català, descripció automàtica desactivada per aquesta pàgina. Guardat confirmat HTTP 200 success=true i comprovat en la resposta pública fresca.
-- SureCookie: missatge, botons, preferències, categories i contingut bloquejat traduïts al català. Guardat HTTP 200 success=true. Es manté el bloqueig i les preferències de consentiment; no s’han desactivat proteccions.
-- Ultimate Addons for Elementor (header-footer-elementor/header-footer-elementor.php) desactivat perquè reemplaçava el footer propi amb la plantilla anglesa anterior, ocultant crèdits i simulació. Configuració conservada.
-- Astra conservat per tornar enrere. No s’han eliminat pàgines ni instal·lat extensions noves.
-- Elementor, PRO Elements, WooCommerce, WooPayments, SureCookie, SureForms, SureMail, SureRank, Starter Templates, Presto Player i AI Provider for OpenAI continuen actius; Akismet continua inactiu. Els pagaments del tema NO utilitzen WooPayments.
+## Publicació completada
+Tema **MatchLearn 1.1.0** instal·lat i actiu a https://matchlearn.cat/. Font i dist/matchlearn.zip coincideixen amb el paquet pujat. Astra es conserva per revertir.
 
-## Proves
-`tools/deploy/public-test.cjs` ha completat correctament la navegació pública: filtres, cerca sense accents, reserva, import per durada, pagament simulat, aula, valoració, candidatura, menú mòbil i absència de desbordament a 390 px. Sense errors JavaScript. Les proves utilitzen `?ml-check=<timestamp>` per obtenir resposta fresca i consentiment de només galetes necessàries. Captures de la versió pública actual a `dist/matchlearn-desktop.png` i `dist/matchlearn-mobile.png`. Evidència a `dist/VALIDACIO.txt`.
+Pàgines noves publicades (taula completa i plantilles a README.md):
+- reserva: 1973
+- tutors: 1974
+- tutor-aleix: 1975
+- fes-te-tutor: 1976
+- materies: 1977
+- com-funciona: 1978
+- projecte: 1979
+- preguntes-frequents: 1980
+- privacitat: 1981
+- cookies: 1982
 
-## Únic pendent de publicació detectat: caché
-La URL normal https://matchlearn.cat/ encara ha retornat HTML vell (Age: 695), mentre que una petició amb paràmetre únic retorna 1.0.1, crèdits nous i SEO català. No s’ha trobat cap control de caché al panell WordPress ni cap extensió de caché a la llista. PURGE va rebre HTTP 405; una petició amb Cache-Control no-cache va rebre 429. No continuar fent peticions repetitives.
+La portada continua sent la pàgina 1859 (títol Inici), show_on_front=page i page_for_posts=0. El contingut Elementor antic es conserva a la base de dades, però la plantilla front-page.php el substitueix visualment. No s’han eliminat pàgines preexistents.
 
-Següent pas: demanar buidar la caché des del panell Dinahosting o comprovar-ne l’expiració més endavant. Es disposa d’accés WordPress, no d’accés al panell de hosting. Després comprovar la URL NORMAL sense paràmetres amb navegador nou: `site.js?ver=1.0.1`, crèdits abans de #materies, títol català, sense «Join Our Community». No donar per completada la propagació abans d’aquesta comprovació. No cal repetir desplegament ni totes les mutacions.
+## Funcionalitat i límits reals
+- Perfil Aleix fidel a la composició de la diapositiva, amb nota discreta de procedència del prototip i crèdit de l’avatar. No s’ha posat un segell fals de titulació verificada.
+- Calendari amb cinc dies feiners futurs segons Europe/Madrid. Les franges són dades del recorregut acadèmic, no agenda d’un tutor real. La selecció passa a la reserva per paràmetres validats.
+- Matèries → reserva; perfil → reserva; resum → confirmació → aula → valoració.
+- Durades d’una o dues hores; dues hores només si hi ha franges consecutives. Total 12 €/hora.
+- Aleix associat a Matemàtiques, Programació i Bases de dades. Altres matèries mostren «Tutor pendent d’assignació».
+- Resum desat només a sessionStorage en la pestanya, sense nom, correu ni targeta. Es pot reprendre/eliminar. No es crea un compte, no s’envia reserva a tercers, no es connecta càmera i no es cobra. La confirmació explica això de manera breu.
+- Preferències de graduat i valoració no s’envien ni es desen al servidor.
 
-## Accés segur
-Credencials configurades a l’entorn Codex com MATCHLEARN_WP_USER i el secret MATCHLEARN_WP_PASSWORD per a matchlearn.cat. Comprovar que siguin presents i ready si es canvia d’entorn. No posar valors, cookies, nonces o contrasenyes al repositori ni al xat.
+## Extensions i configuració
+- No s’han instal·lat plugins addicionals.
+- Ultimate Addons for Elementor (header-footer-elementor/header-footer-elementor.php) continua desactivat perquè reemplaçava el footer del tema; configuració conservada.
+- Elementor i PRO Elements continuen actius per a contingut preexistent. El tema exclou els seus assets de la portada i plantilles pròpies per evitar `elementorFrontendConfig is not defined`.
+- WooCommerce i WooPayments continuen actius, però el recorregut del tema no els utilitza.
+- SureCookie existent: textos/categories en català, bloqueig preservat, colors ajustats amb custom_css, enllaços a polítiques 1981 i 1982. No s’ha desactivat el consentiment.
+- SureRank: títol i descripcions de portada en català; eliminada descripció antiga anglesa. L’última descripció presenta tutors, horaris i classes sense avisos repetits de simulació.
+- SureForms, SureMail, Starter Templates, Presto Player i AI Provider for OpenAI preservats; Akismet inactiu.
 
-Login urllib va rebre 406. **Playwright/Chromium amb el proxy HTTPS de l’entorn funciona.** No desactivar verificació TLS. `tools/deploy/browser-login.cjs` inicia sessió i guarda estat privat temporal a /tmp/matchlearn-wp-browser-session.json; pot caducar o no sobreviure a un canvi d’entorn. `admin.cjs` el reutilitza.
+## Validació i caché
+PASS en WordPress Playground local i PASS al lloc públic amb tools/deploy/multipage-test.cjs: 9 pàgines de producte, idioma, enllaços, cerca, calendari, transmissió d’horaris, franges consecutives, càlcul, reserva, emmagatzematge/recàrrega/eliminació, aula, valoració, candidatura, mòbil i cap error JS. Captures públiques a dist/, incloent tutor i reserva. Evidència a dist/VALIDACIO.txt.
 
-Scripts desats a `tools/deploy/`, sense secrets:
-- inspect.cjs: lectura d’estat.
-- install.cjs: instal·lació inicial; NO repetir per una actualització.
-- update-theme.cjs: actualització amb confirmació de substitució.
-- finish-settings.cjs: traducció del consentiment; ja executada.
-- update-seo.cjs: configuració SEO; ja executada.
-- public-test.cjs: proves públiques.
+La portada NORMAL ha respost amb versió 1.1.0 i Age: 0 després de la purga de Varnish. Les proves també usen query únic per evitar còpies intermèdies. urllib ha rebut algun 429 amb peticions seguides; no fer bucles de reintents. Usar el navegador i espaiar comprovacions si passa. El desplegament i les proves principals han acabat.
 
-Llegir tools/deploy/README.md. Els scripts conserven rutes /workspace/matchlearn-tools i /workspace/Wordpress---MatchLearn: adaptar-les si cal. Instal·lar playwright 1.56.1 i disposar de Chromium. Les còpies privades d’estat anterior són a /workspace/matchlearn-tools/deploy (fora de Git); no incloure-les indiscriminadament perquè contenen dades administratives. No assumir que les cookies /tmp passen a un altre ordinador.
+## Continuar sense repetir feina
+Llegir primer aquest fitxer, README.md i git status. No tornar a crear pàgines ni reexecutar configuracions si l’usuari no ho demana. IDs a content/published-pages.json. La maquetació és del tema PHP, no Elementor. Els textos de cookies i privacitat són pàgines WordPress amb còpia a content/.
+
+Eines a tools/deploy/:
+- browser-login.cjs i admin.cjs: accés autenticat.
+- update-theme.cjs: substitució del ZIP existent (install.cjs era només primera instal·lació).
+- publish-pages.cjs: creació/configuració de pàgines, polítiques i cookies; ja executat.
+- multipage-test.cjs: prova vigent. public-test.cjs és antic per a 1.0.x i no reflecteix la navegació actual.
+- blueprint-multipage.json: WordPress Playground local, crea pàgines.
+
+Els scripts conserven rutes /workspace/matchlearn-tools i /workspace/Wordpress---MatchLearn: adaptar-les si es canvia d’entorn. content/pages.json conté la llista per provisionar una instal·lació nova. Playwright 1.56.1, Node i Chromium per a les proves; no calen al hosting. Els snapshots privats són fora del repositori a /workspace/matchlearn-tools/deploy.
+
+## Credencials
+MATCHLEARN_WP_USER i MATCHLEARN_WP_PASSWORD s’injecten de manera segura a l’entorn per a matchlearn.cat. Comprovar presència i readiness. Mai copiar valors/cookies/nonces al Git ni al xat. Login amb Playwright, Chromium i el proxy HTTPS de l’entorn; no desactivar TLS. urllib login va retornar 406. Estat temporal privat /tmp/matchlearn-wp-browser-session.json: pot caducar i no està garantit en altres màquines. Tornar a iniciar sessió si cal.
 
 ## Reversió
-Activar Astra des d’Aparença → Temes i, si cal tornar a la plantilla antiga, reactivar Ultimate Addons for Elementor. La portada i els continguts Elementor no s’han esborrat. Les versions anteriors del tema estan a l’historial Git.
+Reactivar Astra i, si cal el peu antic, Ultimate Addons for Elementor. Els continguts preexistents es conserven. Versions anteriors del tema a l’historial Git. No esborrar les pàgines noves automàticament.

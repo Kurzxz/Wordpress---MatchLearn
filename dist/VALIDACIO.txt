@@ -1,14 +1,16 @@
-MatchLearn 1.0.1 — 2 novembre 2026
-Instal·lat i activat a https://matchlearn.cat/.
-ZIP íntegre i coincident amb el codi del tema.
-Proves públiques PASS amb paràmetre de consulta per evitar una resposta antiga de caché:
-- Portada WordPress i HTML català.
-- Filtres de matèries i cerca sense accents.
-- Reserva, durada i import, pagament fictici, aula i valoració.
-- Candidatura simulada de tutors.
-- Menú mòbil, sense desbordament horitzontal a 390 px.
+MatchLearn 1.1.0 — 2 novembre 2026
+Tema instal·lat i activat a https://matchlearn.cat/.
+Deu pàgines noves creades; IDs a content/published-pages.json.
+PASS local WordPress Playground (WordPress 6.8/PHP 8.3) i PASS al WordPress públic:
+- 9 pàgines de producte, HTML català i encapçalament principal únic.
+- Enllaços entre pàgines, filtratge i cerca sense accents.
+- Calendari del perfil: 20 franges, selecció i transmissió del dia i hora.
+- Validació de dues hores consecutives, import de 24 € per dues hores.
+- Confirmació sense càrrecs, sessionStorage, recàrrega i eliminació.
+- Aula, valoració i candidatura de graduat.
+- Menú mòbil i absència de desbordament a 390 px.
 - Sense errors JavaScript.
-- Crèdits al principi, després de la il·lustració; peu anterior d’Elementor eliminat.
-SureCookie i metadades SEO actualitzats en català.
-LIMITACIÓ: la URL principal sense paràmetres encara ha retornat una còpia antiga amb capçalera Age. Cal buidar la caché de Dinahosting o comprovar-ne l’expiració. No es declara la propagació completa de la caché.
-SHA-256: 25ed1b1265b1c8a29c6f2c86fa8804ac6b41f40faea59c23df9712f8459c9be6
+SureCookie i SEO guardats amb HTTP 200; pàgines de cookies i privacitat publicades.
+La URL normal de portada ha retornat versió 1.1.0 amb Age: 0 després de la purga de Varnish de l’usuari. Les proves de recorregut també usen paràmetre únic per evitar còpies intermèdies.
+ZIP íntegre i coincident amb el codi del tema.
+SHA-256: 34667e7a18d6a81ccc95a12a889f2542f7eec8add13ea437f6451eb4b2b41a5d

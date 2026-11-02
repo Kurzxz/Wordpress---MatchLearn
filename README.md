@@ -1,57 +1,52 @@
-# MatchLearn · Tema WordPress
+# MatchLearn · WordPress 1.1.0
 
-Web en català per al projecte d'Arnau Taure i Joel Martínez, basat en els documents «IDEA PROJ.pdf» i «Espavila_presentacion.pptx.pdf». El nom públic és MatchLearn. La paleta blava, l'estrella vermella i el reforç entre estudiants i graduats provenen de la proposta original.
+Web en català del projecte d’Arnau Taure i Joel Martínez. Publicada a https://matchlearn.cat/. El prototip de la segona diapositiva d’«Espavila_presentacion.pptx.pdf» inspira la fitxa d’Aleix García: avatar, assignatures, preu i calendari setmanal.
 
-## Instal·lació a Dinahosting
+## Pàgines separades
 
-1. Accedeix a l'administració del teu WordPress. Conserva una còpia de seguretat i anota el tema actual abans d'activar-ne un altre.
-2. Ves a **Aparença → Temes → Afegeix un tema nou → Penja el tema**.
-3. Selecciona `dist/matchlearn.zip`, instal·la'l i activa **MatchLearn**. No cal descomprimir el ZIP ni instal·lar Elementor.
-4. Obre la portada. El fitxer `front-page.php` mostra el disseny MatchLearn tant si la portada està configurada com a pàgina estàtica com si mostra les últimes entrades.
-5. A **Configuració → General**, estableix el títol «MatchLearn» i l'idioma català. Si Dinahosting o algun connector té memòria cau, buida-la després d'activar el tema.
+| URL | Plantilla del tema |
+| --- | --- |
+| `/` | `front-page.php` |
+| `/reserva/` | `page-reserva.php` |
+| `/tutors/` | `page-tutors.php` |
+| `/tutor-aleix/` | `page-aleix.php` |
+| `/fes-te-tutor/` | `page-graduats.php` |
+| `/materies/` | `page-materies.php` |
+| `/com-funciona/` | `page-com-funciona.php` |
+| `/projecte/` | `page-projecte.php` |
+| `/preguntes-frequents/` | `page-preguntes.php` |
+| `/cookies/`, `/privacitat/` | Contingut WordPress, còpia a `content/` |
 
-El tema no elimina pàgines, entrades ni configuració del tema anterior. La portada pròpia substitueix visualment el contingut de la pàgina d'inici mentre aquest tema està actiu. Les altres pàgines continuen disponibles amb la plantilla general.
+La portada és breu i la navegació porta a les pàgines. Els crèdits d’IA apareixen al costat de les il·lustracions, no al final. No hi ha fotografies de tutors ni testimonis inventats. Aleix prové del perfil del prototip aportat pels autors; no s’afirma haver verificat realment la seva titulació.
 
-## Què inclou
+## Funcions
 
-- Portada adaptable a mòbil, tauleta i escriptori.
-- Explicació del servei, matèries filtrables i cerca que ignora accents.
-- Model orientatiu de 12 €/hora i repartiment de la comissió.
-- Secció per a graduats, projecte, valors, ODS i preguntes freqüents.
-- Simulació de reserva: matèria → perfil fictici → horari → durada → pagament fictici → aula de mostra → valoració.
-- Simulació de candidatura per a tutors, sense demanar noms ni documents.
-- Crèdits del projecte i atribució explícita de les il·lustracions i del disseny assistits per IA.
+- Matèries filtrables i cerca que ignora accents.
+- Calendari accessible amb els cinc pròxims dies feiners, franges disponibles i selecció visible.
+- Dia i hora passen del perfil a la reserva; les sessions de dues hores requereixen dues franges consecutives disponibles.
+- Reserva en tres passos, càlcul d’import i aula amb pla de treball i valoració.
+- «Les meves sessions» conserva un resum a `sessionStorage`: es pot reprendre o eliminar i sobreviu a la recàrrega de la mateixa pestanya.
+- Candidatura de graduat amb especialitat, disponibilitat i compromís d’integritat acadèmica.
+- SureCookie existent configurat en català, colors del tema i enllaços a galetes i privacitat.
 
-Les simulacions s'executen al navegador i s'esborren en recarregar. No creen usuaris, no envien correus, no desen dades, no connecten una càmera i no cobren diners. Els perfils A i B són ficticis. Els 12 €/hora provenen de la presentació i no són una oferta comercial real. No hi ha passarel·la de pagament ni servei de videotrucades integrat.
+Les reserves continuen sent el recorregut acadèmic demanat per l’usuari. No envien una reserva a cap tutor, no creen comptes, no activen una càmera i no cobren diners. No es demanen dades personals ni bancàries. Aquesta limitació s’explica al pas de confirmació; s’han eliminat els avisos repetits de simulació de portada i botons. Els perfils dels àmbits sense tutor associat indiquen «Tutor pendent d’assignació».
 
-## Personalització
+## Instal·lació i actualització
 
-**Aparença → Personalitza → MatchLearn · Configuració** permet canviar el text introductori i afegir un correu públic o un enllaç extern de reserves. El correu obre el gestor de correu del visitant. No s'utilitza el correu d'administració automàticament.
+A WordPress: **Aparença → Temes → Afegeix → Penja el tema**, tria `dist/matchlearn.zip` i activa MatchLearn. Si ja està actiu, substitueix la versió instal·lada. Conserva còpia de seguretat i el tema anterior.
 
-El botó de graduats executa sempre la simulació mentre JavaScript està actiu. La URL opcional de graduats s'utilitza només com a destinació alternativa sense JavaScript. Per a aquest projecte acadèmic, deixa buides les URL externes.
+En una instal·lació nova, crea les pàgines de la taula amb els seus slugs i assigna la plantilla corresponent. Pujar només el ZIP no crea les pàgines automàticament. A matchlearn.cat ja estan creades; els IDs són a `content/published-pages.json`. Usa el català a Configuració → General. Si Varnish conserva una versió antiga, purga la caché des de Dinahosting.
 
-Els altres textos es troben a `matchlearn/front-page.php`, els crèdits a `credits.php`, just després de la capçalera visual, les pantalles simulades a `demo.php` i els estils a `assets/site.css`. Aquesta portada està feta a mida: no és una plantilla d'Elementor ni un conjunt de blocs editables des de l'editor de pàgines.
+El tema no necessita Elementor ni un plugin de reserves. Al lloc actual s’ha desactivat Ultimate Addons for Elementor perquè substituïa el footer. La resta de plugins s’han conservat. El tema omet assets Elementor només a les pàgines pròpies; el contingut Elementor preexistent d’altres pàgines es conserva.
 
-Es pot assignar un menú a **Enllaços legals del peu**. Si WordPress té una pàgina de privacitat publicada i assignada, el tema n'afegeix l'enllaç. Els textos legals reals depenen del titular i dels connectors instal·lats; no se n'han inventat dades. El tema no incorpora analítica, fonts remotes ni galetes pròpies. WordPress i altres connectors poden tenir-ne.
+## Edició
 
-## Fitxers i crèdits
+Els textos són a les plantilles PHP i els estils a `assets/site.css`. No són plantilles Elementor. **Aparença → Personalitza → MatchLearn · Configuració** permet editar la introducció i configurar un correu públic o destinacions externes opcionals. Per aquest projecte, deixa buides les URL externes de reserves.
 
-El ZIP conté només el tema, sense els PDF originals, credencials, dependències de desenvolupament ni base de dades. Les il·lustracions són SVG/CSS originals amb assistència d'OpenAI (ChatGPT/Codex); no hi ha fotografies de tercers. L'atribució apareix al costat de la portada visual, abans de la resta de seccions.
+## Continuació i proves
 
-## Desenvolupament local
+Llegeix **CONTINUAR.md** abans de canviar el lloc. Els scripts a `tools/deploy/` no contenen credencials. Cada tasca de Codex ja és aïllada: fes servir el checkout existent sense crear un worktree addicional.
 
-Cada tasca en aquest entorn ja està aïllada; utilitza aquest checkout sense crear un worktree addicional. Les eines de prova es troben fora del repositori, a `/workspace/matchlearn-tools`. S'ha preparat WordPress Playground amb WordPress 6.8, PHP 8.3 i SQLite per validar el tema sense dependre de Dinahosting.
+Prova principal: `multipage-test.cjs` amb Node, Playwright 1.56.1 i Chromium. `ML_TEST_URL=https://matchlearn.cat` selecciona el lloc públic; sense variable utilitza WordPress Playground al port 9400. El blueprint local crea les pàgines per validar-les. Les dependències de desenvolupament no calen al hosting.
 
-Arrencada a l'entorn preparat:
-
-```sh
-/workspace/matchlearn-tools/node_modules/.bin/wp-playground-cli server \
-  --wordpress-install-mode install-from-existing-files \
-  --mount-before-install /workspace/matchlearn-tools/runtime/WordPress-6.8:/wordpress \
-  --mount /workspace/Wordpress---MatchLearn/matchlearn:/wordpress/wp-content/themes/matchlearn \
-  --blueprint /workspace/matchlearn-tools/blueprint.json --port 9400 --workers 1
-```
-
-Validació de navegació: `node /workspace/matchlearn-tools/check.cjs`.
-
-La versió 1.0.1 ja està instal·lada, activada i provada a Dinahosting. Resta comprovar la renovació de la caché de la URL principal: consulta `CONTINUAR.md` abans de continuar.
+Evidència a `dist/VALIDACIO.txt` i captures a `dist/`. El ZIP conté només el tema; no conté contrasenyes, sessions, PDF originals ni bases de dades.
