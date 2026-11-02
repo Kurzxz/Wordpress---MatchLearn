@@ -1,0 +1,22 @@
+<?php if (!defined('ABSPATH')) { exit; } ?>
+<dialog class="demo-dialog" id="booking-dialog" aria-labelledby="booking-title">
+<button class="dialog-close" type="button" aria-label="Tanca la finestra">×</button>
+<p class="eyebrow">MATCHLEARN · SIMULACIÓ ACADÈMICA</p>
+<h2 id="booking-title">El teu següent pas.</h2>
+<div id="booking-selection">
+<p>Tria una matèria i prova com seria reservar una tutoria. Tots els perfils i horaris són ficticis.</p>
+<form id="booking-form">
+<label>Què vols reforçar?<select name="subject" id="booking-subject" required><option>Matemàtiques</option><option>Programació</option><option>Física i enginyeria</option><option>Economia i empresa</option><option>Comunicació i llengües</option><option>Mòduls tècnics de FP</option></select></label>
+<label>El teu tutor de mostra<select name="tutor" id="booking-tutor"><option>Perfil A · Graduat recent · Exemple fictici</option><option>Perfil B · Graduat recent · Exemple fictici</option></select></label>
+<label>Quan et va bé?<select name="slot"><option>Pròxim dilluns · 17.00 h</option><option>Pròxim dimecres · 18.00 h</option><option>Pròxim divendres · 16.00 h</option></select></label>
+<label>Durada<select name="duration" id="booking-duration"><option value="1">1 hora</option><option value="2">2 hores</option></select></label>
+<div class="demo-total"><span>Total simulat</span><strong id="booking-total">12,00 €</strong></div>
+<button type="submit" class="button primary">Continua al pagament simulat ↗</button>
+</form></div>
+<div id="booking-payment" hidden><p class="demo-summary" id="payment-summary"></p><p class="demo-disclaimer">Mode de prova. No introdueixis dades bancàries: no es farà cap cobrament ni cap reserva real.</p><button class="button primary" id="confirm-payment">Confirma el pagament fictici</button><button class="button secondary" id="back-booking">Torna a la selecció</button></div>
+<div id="booking-success" hidden aria-live="polite"><span class="success-icon" aria-hidden="true">✓</span><h3>Ja tens el teu moment clic!</h3><p>Reserva simulada completada. Pagament fictici acceptat, sense cap càrrec.</p><p class="demo-summary" id="success-summary"></p><button class="button primary" id="enter-classroom">Entra a l'aula de mostra ↗</button></div>
+<div id="booking-classroom" hidden><span class="success-icon" aria-hidden="true">✦</span><h3>Benvingut a la teva aula.</h3><p>Aquesta és una aula simulada. No hi ha videotrucada ni cap accés al micròfon o a la càmera.</p><div class="demo-summary"><strong>El pla de la sessió</strong><ol><li>Explica quin dubte tens.</li><li>Repassa el concepte amb el tutor.</li><li>Practica amb un exemple.</li><li>Comprova què has après.</li></ol></div><button class="button primary" id="finish-classroom">Acaba la sessió de mostra</button></div>
+<div id="booking-feedback" hidden><h3>Com ha anat aquest clic?</h3><form id="feedback-form"><label>Valoració de prova<select required><option value="">Tria una valoració</option><option>5 · Ho he entès!</option><option>4 · He avançat molt</option><option>3 · Necessito practicar</option><option>2 · Em queden dubtes</option><option>1 · Necessito més ajuda</option></select></label><button class="button primary">Completa la simulació</button></form><p id="feedback-message" hidden role="status">Gràcies! Has completat el recorregut de mostra. La valoració no s'ha desat ni enviat.</p></div>
+<div id="tutor-demo" hidden><p>Prova el recorregut d'un graduat. No et demanarem documents ni dades personals.</p><form id="tutor-form"><label>Àmbit de la teva titulació<select required><option value="">Tria un àmbit</option><option>Ciència i tecnologia</option><option>Empresa i societat</option><option>FP de grau superior</option></select></label><label>Disponibilitat de mostra<select><option>Tardes entre setmana</option><option>Matins entre setmana</option><option>Caps de setmana</option></select></label><p class="demo-disclaimer">En el servei proposat, caldria acreditar la titulació. Aquesta simulació no valida cap document ni crea un compte.</p><button class="button primary">Simula la candidatura ↗</button></form><p id="tutor-success" hidden role="status">Candidatura de prova completada. En un servei real, el següent pas seria verificar la titulació. No s'ha enviat ni desat cap dada.</p></div>
+<noscript><p>Activa JavaScript per provar el recorregut simulat. No s'efectua cap pagament real.</p></noscript>
+</dialog>

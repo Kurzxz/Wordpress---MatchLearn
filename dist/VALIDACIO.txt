@@ -1,0 +1,6 @@
+MatchLearn 1.0.0
+Validat en WordPress 6.8, PHP 8.3 (WordPress Playground).
+Correcte: càrrega WordPress, HTML en català, cerca sense accents, filtres, reserva, preu per durada, pagament fictici, aula simulada, valoració, candidatura de tutors, menú mòbil, sense desbordament horitzontal a 390 px ni errors JavaScript.
+Arxiu ZIP comprovat.
+El lloc de Dinahosting no s’ha modificat.
+SHA-256: e4998c0150db14ae2ff1660de373967713741dbf78c2f8ac5e18d24d22c5e595
